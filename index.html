@@ -834,8 +834,17 @@
 
     </div>
 
-    <footer class="footer">
-        Desenvolvido por Glauber Santiago
+    <footer class="footer" style="line-height: 1.6; max-width: 600px; margin: 20px auto 0 auto; color: #888; text-align: center; padding: 20px 0; font-size: 12px;">
+        <div>Desenvolvido pelo professor <strong>Glauber Santiago</strong> — DAC/UFSCar</div>
+        <div>
+            <a href="https://servidores.ufscar.br/glauber/" target="_blank" style="color: var(--accent); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--accent)'">servidores.ufscar.br/glauber/</a> • 
+            <a href="https://sites.google.com/view/glauberia" target="_blank" style="color: var(--accent); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--accent)'">sites.google.com/view/glauberia</a>
+        </div>
+        <div style="margin-top: 8px; font-size: 11px; color: #666;">
+            Conheça também os apps 
+            <a href="https://glauberlasantiago.github.io/loop-to-dance/" target="_blank" style="color: #aaa; text-decoration: underline; transition: color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='#aaa'">Loop to Dance</a> e 
+            <a href="https://glauberlasantiago.github.io/perc-corporal/" target="_blank" style="color: #aaa; text-decoration: underline; transition: color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='#aaa'">Percorporalizando</a>
+        </div>
     </footer>
 
     <!-- Modal Customizado para Solicitar Arquivo -->
@@ -862,6 +871,16 @@
     </div>
 
     <script>
+        // Global error handler for debugging
+        window.addEventListener('error', function(e) {
+            console.error("Global error caught:", e.message, "at", e.filename, ":", e.lineno);
+            const hint = document.getElementById('choreoHint');
+            if (hint) {
+                hint.textContent = "❌ Erro: " + e.message;
+                hint.style.color = "#f44336";
+            }
+        });
+
         // ======== ELEMENTOS DO DOM E PLAYER UNIFICADO ========
         const html5Video = document.getElementById('videoPlayer');
         const ytPlayerContainer = document.getElementById('ytPlayerContainer');
@@ -1012,7 +1031,13 @@
             },
 
             set src(val) {
-                // Configurado dinamicamente
+                if (!val) return;
+                const info = getVideoIdFromURL(val);
+                if (info.type === 'youtube') {
+                    loadYoutubePlayer(info.id);
+                } else {
+                    loadHtml5Video(val);
+                }
             },
 
             get style() {
@@ -1528,18 +1553,22 @@
             innerDiv.style.height = '100%';
             ytPlayerContainer.appendChild(innerDiv);
 
+            const playerVars = {
+                'playsinline': 1,
+                'controls': 1,
+                'rel': 0,
+                'showinfo': 0,
+                'modestbranding': 1
+            };
+            if (window.location.origin && window.location.origin.startsWith('http')) {
+                playerVars.origin = window.location.origin;
+            }
+
             appPlayer.ytPlayer = new YT.Player(ytPlayerId, {
                 height: '100%',
                 width: '100%',
                 videoId: videoId,
-                playerVars: {
-                    'playsinline': 1,
-                    'controls': 1,
-                    'rel': 0,
-                    'showinfo': 0,
-                    'modestbranding': 1,
-                    'origin': window.location.origin
-                },
+                playerVars: playerVars,
                 events: {
                     'onReady': (event) => {
                         appPlayer.trigger('loadedmetadata');
