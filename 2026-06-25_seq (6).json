@@ -1,0 +1,1798 @@
+{
+  "2026-05-14 irish.mp4_2821380": {
+    "id": "2026-05-14 irish.mp4_2821380",
+    "title": "2026-05-14 irish.mp4",
+    "lastAccessed": 1783272712497,
+    "fileDate": 1782331605513,
+    "isFavorite": false,
+    "markers": [
+      2.8,
+      6.4,
+      10.5,
+      11.7,
+      16.6,
+      20.5,
+      22.3
+    ],
+    "duration": 23.266395,
+    "thumbnail": "data:image/jpeg;base64,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",
+    "steps": [
+      {
+        "id": "step_1782355582320_jzfh",
+        "time": 0,
+        "step": "-",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782355582512_jk2p",
+        "time": 0,
+        "step": "-",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782355602560_jm7d",
+        "time": 0,
+        "step": "-",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782355602760_xr46",
+        "time": 0,
+        "step": "-",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782355605649_wkwv",
+        "time": 0,
+        "step": "-",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782355605849_u003",
+        "time": 0,
+        "step": "-",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782403419236_odn7",
+        "time": 0,
+        "step": "-",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782403419620_lkx3",
+        "time": 0,
+        "step": "-",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_5phj_0",
+        "time": 2.82,
+        "step": "STEP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_q74k_1",
+        "time": 3.23,
+        "step": "brush",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782353767682_hscx_2",
+        "time": 3.67,
+        "step": "spank",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782353767682_ecrx_3",
+        "time": 4.27,
+        "step": "HOP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_ygbg_4",
+        "time": 4.8,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782353857216_fk35",
+        "time": 5.48,
+        "step": "BRUSH",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_0gs0_5",
+        "time": 5.88,
+        "step": "SPANK",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_dyhb_6",
+        "time": 6.22,
+        "step": "hop",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782353767682_jl13_7",
+        "time": 6.97,
+        "step": "STEP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_ept6_9",
+        "time": 7.61,
+        "step": "brush",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782354057031_99wn",
+        "time": 7.77,
+        "step": "spank",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782353767682_v4ka_10",
+        "time": 8.27,
+        "step": "HOP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_wrk7_11",
+        "time": 8.65,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782353767682_133v_12",
+        "time": 9.31,
+        "step": "BRUSH",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_fb29_13",
+        "time": 9.73,
+        "step": "SPANK",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_539u_14",
+        "time": 10.36,
+        "step": "hop",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782355186770_5rp2",
+        "time": 10.76,
+        "step": "STEP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_86wo_19",
+        "time": 12.65,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782353767682_hw0z_20",
+        "time": 13.23,
+        "step": "BRUSH",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_juq8_21",
+        "time": 13.57,
+        "step": "SPANK",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_h9sc_22",
+        "time": 14.18,
+        "step": "hop",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782353767682_qghf_23",
+        "time": 14.6,
+        "step": "STEP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_jspy_24",
+        "time": 15.54,
+        "step": "brush",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782353767682_evod_25",
+        "time": 15.82,
+        "step": "spank",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782353767682_kvig_26",
+        "time": 16.25,
+        "step": "HOP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_hvvb_27",
+        "time": 16.65,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782353767682_oshj_28",
+        "time": 17.19,
+        "step": "BRUSH",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_bt4w_29",
+        "time": 17.55,
+        "step": "SPANK",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_rnxh_30",
+        "time": 18.19,
+        "step": "hop",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782353767682_ruel_31",
+        "time": 18.56,
+        "step": "STEP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_v7xl_32",
+        "time": 19.45,
+        "step": "brush",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782353767682_rae2_33",
+        "time": 19.88,
+        "step": "spank",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782353767682_j8jh_34",
+        "time": 20.22,
+        "step": "HOP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_i145_35",
+        "time": 20.63,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1782353767682_098t_39",
+        "time": 22.69,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_6dbk_40",
+        "time": 23.29,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_loje_41",
+        "time": 23.65,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_hwg0_42",
+        "time": 24.51,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_yx1u_43",
+        "time": 25.11,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1782353767682_f263_44",
+        "time": 25.86,
+        "step": "A DEFINIR",
+        "foot": "L"
+      }
+    ],
+    "segmentLabels": {
+      "0.0": "FFfdf",
+      "4.4": "fdfdfdf",
+      "2.8": "Front",
+      "11.7": "Back"
+    },
+    "choreoName": "American Irish"
+  },
+  "yt_JJuRNR0D8g8": {
+    "id": "yt_JJuRNR0D8g8",
+    "title": "YouTube: JJuRNR0D8g8",
+    "originalUrl": "https://www.youtube.com/shorts/JJuRNR0D8g8",
+    "lastAccessed": 1782397600603,
+    "fileDate": 1782352223607,
+    "isFavorite": false,
+    "markers": [],
+    "duration": 0
+  },
+  "yt_l51_IBFzv-g": {
+    "id": "yt_l51_IBFzv-g",
+    "title": "YouTube: l51_IBFzv-g",
+    "originalUrl": "https://www.youtube.com/shorts/l51_IBFzv-g",
+    "lastAccessed": 1782352318615,
+    "fileDate": 1782352273872,
+    "isFavorite": false,
+    "markers": [],
+    "duration": 0
+  },
+  "yt_rYbmrBjsZh8": {
+    "id": "yt_rYbmrBjsZh8",
+    "title": "YouTube: rYbmrBjsZh8",
+    "originalUrl": "https://youtu.be/rYbmrBjsZh8?si=zvbRVJv-tNkBf2b6",
+    "lastAccessed": 1782352410175,
+    "fileDate": 1782352350863,
+    "isFavorite": false,
+    "markers": [],
+    "duration": 0
+  },
+  "2026-05-14 seq.mp4_4818616": {
+    "id": "2026-05-14 seq.mp4_4818616",
+    "title": "2026-05-14 seq.mp4",
+    "lastAccessed": 1783250744258,
+    "fileDate": 1782331606100,
+    "isFavorite": false,
+    "markers": [
+      1.4,
+      7.8,
+      13.1,
+      18.2,
+      22.7,
+      25.9,
+      30.3,
+      35.5,
+      40.5,
+      44.4,
+      47.9
+    ],
+    "duration": 46.02195,
+    "thumbnail": "data:image/jpeg;base64,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",
+    "steps": [
+      {
+        "id": "step_1783250766362_sker_0",
+        "time": 3.19,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783250863049_t7e0",
+        "time": 3.92,
+        "step": "heel",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783250766362_83ke_2",
+        "time": 4.62,
+        "step": "STEP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_v4vc_3",
+        "time": 5.2,
+        "step": "HEEL",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_6iqo_4",
+        "time": 5.66,
+        "step": "HEEL",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_c3bm_5",
+        "time": 6.04,
+        "step": "stamp",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783250766362_jqlb_6",
+        "time": 6.45,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783250766362_zqup_7",
+        "time": 7.13,
+        "step": "BRUSH",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_pt74_8",
+        "time": 7.78,
+        "step": "SPANK",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783251206607_3klf",
+        "time": 7.79,
+        "step": "SPANK",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_fvze_9",
+        "time": 8.49,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_mwm3_10",
+        "time": 9.12,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_in3e_11",
+        "time": 9.77,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_8c05_12",
+        "time": 10.41,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_5ajy_13",
+        "time": 11.07,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_7xon_14",
+        "time": 11.72,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_rx29_15",
+        "time": 12.22,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_rlat_16",
+        "time": 13.02,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_caad_17",
+        "time": 13.66,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_aq5u_18",
+        "time": 14.29,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_cnay_19",
+        "time": 14.94,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_uepg_20",
+        "time": 15.58,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_tc8t_21",
+        "time": 16.24,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_r389_22",
+        "time": 16.71,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_yecr_23",
+        "time": 17.53,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_2oxo_24",
+        "time": 18.18,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_riki_25",
+        "time": 18.83,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_2ih0_26",
+        "time": 19.47,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_0x2b_27",
+        "time": 20.11,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_vqj3_28",
+        "time": 20.75,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_000c_29",
+        "time": 21.4,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_a9fu_30",
+        "time": 22.03,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_tpld_31",
+        "time": 22.36,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_ouq2_32",
+        "time": 22.69,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_2ezu_33",
+        "time": 23.32,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_jq0q_34",
+        "time": 23.67,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_kbl4_35",
+        "time": 23.99,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_c3rt_36",
+        "time": 24.61,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_t7mt_37",
+        "time": 24.9,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_umcx_38",
+        "time": 25.23,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_cn27_39",
+        "time": 25.5,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_40rw_40",
+        "time": 25.83,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_3m0b_41",
+        "time": 26.53,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_5o7t_42",
+        "time": 26.8,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_fg40_43",
+        "time": 27.07,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_t4o9_44",
+        "time": 27.72,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_ifbk_45",
+        "time": 28.36,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_hfuj_46",
+        "time": 29.01,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_mqiu_47",
+        "time": 29.64,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_0o6i_48",
+        "time": 30.3,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_o4i4_49",
+        "time": 30.95,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_i9yf_50",
+        "time": 31.6,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_mpq7_51",
+        "time": 32.21,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_6bfl_52",
+        "time": 32.74,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_6lr2_53",
+        "time": 33.53,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_4e3x_54",
+        "time": 34.17,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_vgin_55",
+        "time": 34.76,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_j5rp_56",
+        "time": 35.42,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_8lav_57",
+        "time": 36.04,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_dfgb_58",
+        "time": 36.7,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_tij7_59",
+        "time": 37.32,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_s1oo_60",
+        "time": 37.95,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_oo8k_61",
+        "time": 38.6,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_fo4i_62",
+        "time": 39.23,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_0w0m_63",
+        "time": 39.89,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_3oz2_64",
+        "time": 40.5,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_49mq_65",
+        "time": 41.12,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_2vti_66",
+        "time": 41.75,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_kvzj_67",
+        "time": 42.38,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_6xh3_68",
+        "time": 42.71,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_sso6_69",
+        "time": 43.04,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_qf5m_70",
+        "time": 43.67,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_07ho_71",
+        "time": 43.99,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_49cf_72",
+        "time": 44.31,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_kxyz_73",
+        "time": 44.94,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_pnm7_74",
+        "time": 45.27,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_ki5y_75",
+        "time": 45.59,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_vncd_76",
+        "time": 45.89,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_w10u_77",
+        "time": 46.22,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_le5o_78",
+        "time": 47.01,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_v1vn_79",
+        "time": 47.48,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_p569_80",
+        "time": 47.89,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783250766362_noxe_81",
+        "time": 48.51,
+        "step": "A DEFINIR",
+        "foot": "L"
+      }
+    ]
+  },
+  "2026-06-25 seq.mp4_7739955": {
+    "id": "2026-06-25 seq.mp4_7739955",
+    "title": "2026-06-25 seq.mp4",
+    "lastAccessed": 1783371233522,
+    "fileDate": 1782483588071,
+    "isFavorite": false,
+    "markers": [
+      2.8,
+      7.2,
+      12.9,
+      17.6,
+      22.6,
+      27.4,
+      31.5,
+      37.7,
+      42.9
+    ],
+    "duration": 85.633333,
+    "thumbnail": "data:image/jpeg;base64,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",
+    "steps": [
+      {
+        "id": "step_1783268652077_ialu_0",
+        "time": 2.85,
+        "step": "dig",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783270183483_6mz3",
+        "time": 3.57,
+        "step": "brush",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_9mk1_3",
+        "time": 4.14,
+        "step": "HEEL",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_w1a3_4",
+        "time": 4.7,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_9u18_5",
+        "time": 5.41,
+        "step": "heel",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783270884448_nny6",
+        "time": 5.97,
+        "step": "TOE",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_7wri_6",
+        "time": 6.3,
+        "step": "HEEL",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_wsie_7",
+        "time": 6.55,
+        "step": "STAMP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_k5x5_9",
+        "time": 7.83,
+        "step": "brush",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783341424159_zhxb",
+        "time": 8.25,
+        "step": "spank",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_c8zi_10",
+        "time": 8.42,
+        "step": "stamp",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_m13q_12",
+        "time": 9.11,
+        "step": "BRUSH",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_zgx2_11",
+        "time": 9.4,
+        "step": "SPANK",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_vm6z_13",
+        "time": 9.7,
+        "step": "STAMP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783368983085_14ao",
+        "time": 10.4,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_nd0d_14",
+        "time": 10.69,
+        "step": "scuff",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_lmdc_15",
+        "time": 11.12,
+        "step": "dig",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_3v37_16",
+        "time": 11.54,
+        "step": "brush",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_3fha_17",
+        "time": 11.71,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783369044228_f1ic",
+        "time": 12.13,
+        "step": "heel",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_mca9_19",
+        "time": 12.41,
+        "step": "HEEL",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_b970_20",
+        "time": 12.98,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_b58f_21",
+        "time": 13.58,
+        "step": "HEEL",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_oayq_23",
+        "time": 14.26,
+        "step": "heel",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_2pvp_24",
+        "time": 14.85,
+        "step": "STEP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_cw4d_25",
+        "time": 15.55,
+        "step": "heel",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_2mli_26",
+        "time": 16.05,
+        "step": "HEEL",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_c9wd_29",
+        "time": 16.7,
+        "step": "stamp",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783369156787_dsqh",
+        "time": 17.25,
+        "step": "STAMP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_itej_30",
+        "time": 17.75,
+        "step": "heel",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_x4kl_31",
+        "time": 18.35,
+        "step": "HEEL",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_prb8_32",
+        "time": 18.95,
+        "step": "toe",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_4qfw_33",
+        "time": 19.57,
+        "step": "TOE",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_ptol_34",
+        "time": 20.18,
+        "step": "scuff",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_crd8_35",
+        "time": 20.8,
+        "step": "stamp",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_225n_37",
+        "time": 21.4,
+        "step": "TOE (TIP)",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_ajff_39",
+        "time": 22.82,
+        "step": "STEP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_bpqc_40",
+        "time": 23.4,
+        "step": "brush",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783363573413_ox4a",
+        "time": 23.97,
+        "step": "spank",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_5pjb_42",
+        "time": 24.68,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_a0if_43",
+        "time": 25.24,
+        "step": "BRUSH",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_gj3b_44",
+        "time": 25.82,
+        "step": "SPANK",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_9vu7_45",
+        "time": 26.41,
+        "step": "STEP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_12mc_46",
+        "time": 27.11,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_ugus_47",
+        "time": 27.68,
+        "step": "STAMP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_5oin_48",
+        "time": 28.23,
+        "step": "brush",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_6i34_49",
+        "time": 28.84,
+        "step": "spank",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_sewy_50",
+        "time": 29.4,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_tqfi_51",
+        "time": 29.97,
+        "step": "BRUSH",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783363750771_cn0v",
+        "time": 30.68,
+        "step": "SPANK",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_1f1z_53",
+        "time": 31.25,
+        "step": "STEP",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783369342347_czpj",
+        "time": 32.41,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_pdde_56",
+        "time": 32.98,
+        "step": "heel",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_l5yn_57",
+        "time": 33.53,
+        "step": "HEEL",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_3qo3_58",
+        "time": 34.23,
+        "step": "step",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783364162362_56xf",
+        "time": 34.8,
+        "step": "heel",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783369360139_97y7",
+        "time": 35.37,
+        "step": "HEEL",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_lb4k_60",
+        "time": 35.85,
+        "step": "stamp",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_8ecq_61",
+        "time": 36.53,
+        "step": "TOE",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_h0hy_62",
+        "time": 37.08,
+        "step": "toe",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_zw5o_63",
+        "time": 37.65,
+        "step": "toe",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_e6rh_64",
+        "time": 38.39,
+        "step": "TOE",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_k1y6_65",
+        "time": 38.95,
+        "step": "TOE",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_52fn_66",
+        "time": 39.54,
+        "step": "toe",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_5mrd_68",
+        "time": 40.83,
+        "step": "stamp",
+        "foot": "R"
+      },
+      {
+        "id": "step_1783268652077_wjph_73",
+        "time": 43.63,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_rlnw_74",
+        "time": 44.46,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_7ysv_75",
+        "time": 44.91,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_qvar_76",
+        "time": 45.56,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_5zkv_77",
+        "time": 46.17,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_3pti_78",
+        "time": 46.8,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_7glo_79",
+        "time": 47.43,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_cbjm_80",
+        "time": 47.88,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_acds_81",
+        "time": 48.35,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_wxq0_82",
+        "time": 48.68,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_b64u_83",
+        "time": 49.31,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_jajt_84",
+        "time": 49.93,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_yq6x_85",
+        "time": 50.26,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_6nbo_86",
+        "time": 50.6,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_r69w_87",
+        "time": 51.21,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_4fz7_88",
+        "time": 51.54,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_um8v_89",
+        "time": 51.87,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_ucbr_90",
+        "time": 52.5,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_7pbl_91",
+        "time": 52.81,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_zbvk_92",
+        "time": 53.16,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_3rbf_93",
+        "time": 53.46,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_93ss_94",
+        "time": 53.77,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_ggw7_95",
+        "time": 54.08,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_qzcd_96",
+        "time": 54.39,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_ipkz_97",
+        "time": 54.67,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_v56o_98",
+        "time": 54.98,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_vc9f_99",
+        "time": 55.62,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_10k8_100",
+        "time": 55.99,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_z7je_101",
+        "time": 56.25,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_wau1_102",
+        "time": 56.87,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_72qs_103",
+        "time": 57.49,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_jfxn_104",
+        "time": 58.09,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_aazr_105",
+        "time": 58.51,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_1h9g_106",
+        "time": 59.32,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_izfa_107",
+        "time": 60,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_0bhm_108",
+        "time": 60.94,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_deie_109",
+        "time": 61.69,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_2o18_110",
+        "time": 62.15,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_s8p6_111",
+        "time": 62.6,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_xtsd_112",
+        "time": 62.88,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_mpa1_113",
+        "time": 63.14,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_w5ej_114",
+        "time": 63.71,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_gquf_115",
+        "time": 64.3,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_4muc_116",
+        "time": 64.92,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_x4z1_117",
+        "time": 65.5,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_280p_118",
+        "time": 66.1,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_4scw_119",
+        "time": 66.71,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_ec6i_120",
+        "time": 67.3,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_a7rv_121",
+        "time": 67.82,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_tikz_122",
+        "time": 68.47,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_d1pj_123",
+        "time": 69.08,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_ejoc_124",
+        "time": 69.66,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_aj9c_125",
+        "time": 70.28,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_h386_126",
+        "time": 70.62,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_1oib_127",
+        "time": 70.91,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_eqh4_128",
+        "time": 71.5,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_ldpc_129",
+        "time": 72.07,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_m546_130",
+        "time": 72.66,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_rlbz_131",
+        "time": 73.26,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_z87s_132",
+        "time": 73.86,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_2apl_133",
+        "time": 74.48,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_dere_134",
+        "time": 75.08,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_yt1t_135",
+        "time": 75.68,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_kvsm_136",
+        "time": 76.31,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_tg4e_137",
+        "time": 76.91,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_q0vm_138",
+        "time": 77.53,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_2lrh_139",
+        "time": 78.05,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_wvs3_140",
+        "time": 78.67,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_kw4p_141",
+        "time": 79.29,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_rn5h_142",
+        "time": 79.9,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_gpvi_143",
+        "time": 80.5,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_bsbo_144",
+        "time": 80.97,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_bs5t_145",
+        "time": 81.28,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_5v29_146",
+        "time": 81.69,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_3a76_147",
+        "time": 82.28,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_ultr_148",
+        "time": 82.9,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_cjdq_149",
+        "time": 83.49,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_nrc7_150",
+        "time": 84.08,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_1vrt_151",
+        "time": 84.66,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_0plx_152",
+        "time": 85.24,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_u5ga_153",
+        "time": 85.91,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_re2d_154",
+        "time": 86.45,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_j6xt_155",
+        "time": 86.7,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_kluk_156",
+        "time": 87.56,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_tuht_157",
+        "time": 87.85,
+        "step": "A DEFINIR",
+        "foot": "L"
+      },
+      {
+        "id": "step_1783268652077_cwj7_158",
+        "time": 88.1,
+        "step": "A DEFINIR",
+        "foot": "L"
+      }
+    ],
+    "choreoName": "2026-06-25 seq"
+  }
+}
