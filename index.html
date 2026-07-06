@@ -2724,7 +2724,16 @@ Warm regards,
         };
 
         window.saveProject = function() {
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(videoHistory, null, 2));
+            if (!currentVideoId || !videoHistory[currentVideoId]) {
+                showChoreoHint("⚠️ Não há nenhuma coreografia ativa para salvar", "#f44336");
+                return;
+            }
+            
+            const exportData = {
+                [currentVideoId]: videoHistory[currentVideoId]
+            };
+            
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportData, null, 2));
             const downloadAnchor = document.createElement('a');
             downloadAnchor.setAttribute("href", dataStr);
             
@@ -4344,12 +4353,25 @@ Warm regards,
                 try {
                     const imported = JSON.parse(evt.target.result);
                     if (typeof imported === 'object' && imported !== null) {
-                        videoHistory = imported;
+                        videoHistory = { ...videoHistory, ...imported };
                         normalizeHistoryStepsCasing();
+                        
+                        const keys = Object.keys(imported);
+                        if (keys.length > 0) {
+                            currentVideoId = keys[0];
+                            localStorage.setItem('loopDance_currentVideoId', currentVideoId);
+                        }
+                        
                         saveHistoryToStorage();
+                        
                         if (currentVideoId && videoHistory[currentVideoId]) {
                             markers = videoHistory[currentVideoId].markers || [];
                             renderLoops();
+                            if (videoHistory[currentVideoId].originalUrl) {
+                                loadVideoFromURL(videoHistory[currentVideoId].originalUrl);
+                            } else {
+                                requestVideoRestore(currentVideoId);
+                            }
                         } else {
                             forceClearAllMarkers(true);
                         }
