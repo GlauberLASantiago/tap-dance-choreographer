@@ -1493,22 +1493,7 @@ Warm regards,
                 if (data) videoHistory = JSON.parse(data);
                 normalizeHistoryStepsCasing();
                 
-                // Self-correct default project's originalUrl if it exists in history
-                const defaultId = "2026-05-14 irish.mp4_2821380";
-                const defaultVideoUrl = "https://glauberlasantiago.github.io/tap-dance-choreographer/prof-Giovane-Mendonca-exemplo-sapateado.mp4";
-                if (videoHistory[defaultId]) {
-                    if (!videoHistory[defaultId].originalUrl) {
-                        videoHistory[defaultId].originalUrl = defaultVideoUrl;
-                    }
-                }
-                
                 currentVideoId = localStorage.getItem('loopDance_currentVideoId') || null;
-                
-                // Fallback to select default project if history contains it but currentVideoId is empty
-                if (!currentVideoId && videoHistory[defaultId]) {
-                    currentVideoId = defaultId;
-                    localStorage.setItem('loopDance_currentVideoId', currentVideoId);
-                }
                 
                 audioFeedbackMode = localStorage.getItem('audioFeedbackMode') || 'none';
                 const feedbackSelect = document.getElementById('audioFeedbackSelect');
@@ -5173,10 +5158,9 @@ Warm regards,
                         const defaultId = keys[0];
                         videoHistory[defaultId].originalUrl = defaultVideoUrl;
                         
-                        if (!currentVideoId) {
-                            currentVideoId = defaultId;
-                            localStorage.setItem('loopDance_currentVideoId', currentVideoId);
-                        }
+                        // Always set the default as active when this function is called
+                        currentVideoId = defaultId;
+                        localStorage.setItem('loopDance_currentVideoId', currentVideoId);
                     }
                     
                     saveHistoryToStorage();
@@ -5197,11 +5181,16 @@ Warm regards,
         renderStepButtons();
         setupWaveformInteraction();
 
-        // Load default project/video if history is empty
-        if (Object.keys(videoHistory).length === 0) {
+        // Load default project/video on startup
+        const _startCurrentId = currentVideoId;
+        const _startHasUrl = _startCurrentId && videoHistory[_startCurrentId] && videoHistory[_startCurrentId].originalUrl;
+        
+        if (_startHasUrl) {
+            // Existing project with a streamable URL - load it directly
+            loadVideoFromURL(videoHistory[_startCurrentId].originalUrl);
+        } else {
+            // No usable active project: always load the default example
             loadDefaultProjectAndVideo();
-        } else if (currentVideoId && videoHistory[currentVideoId] && videoHistory[currentVideoId].originalUrl) {
-            loadVideoFromURL(videoHistory[currentVideoId].originalUrl);
         }
 
         requestAnimationFrame(checkLoop);
