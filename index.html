@@ -1492,7 +1492,23 @@ Warm regards,
                 const data = localStorage.getItem(STORAGE_KEY);
                 if (data) videoHistory = JSON.parse(data);
                 normalizeHistoryStepsCasing();
+                
+                // Self-correct default project's originalUrl if it exists in history
+                const defaultId = "2026-05-14 irish.mp4_2821380";
+                const defaultVideoUrl = "https://glauberlasantiago.github.io/tap-dance-choreographer/prof-Giovane-Mendonca-exemplo-sapateado.mp4";
+                if (videoHistory[defaultId]) {
+                    if (!videoHistory[defaultId].originalUrl) {
+                        videoHistory[defaultId].originalUrl = defaultVideoUrl;
+                    }
+                }
+                
                 currentVideoId = localStorage.getItem('loopDance_currentVideoId') || null;
+                
+                // Fallback to select default project if history contains it but currentVideoId is empty
+                if (!currentVideoId && videoHistory[defaultId]) {
+                    currentVideoId = defaultId;
+                    localStorage.setItem('loopDance_currentVideoId', currentVideoId);
+                }
                 
                 audioFeedbackMode = localStorage.getItem('audioFeedbackMode') || 'none';
                 const feedbackSelect = document.getElementById('audioFeedbackSelect');
@@ -3484,9 +3500,18 @@ Warm regards,
             try {
                 let arrayBuffer;
                 if (typeof fileOrUrl === 'string') {
-                    const response = await fetch(fileOrUrl);
-                    const blob = await response.blob();
-                    arrayBuffer = await blob.arrayBuffer();
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), 4000);
+                    
+                    try {
+                        const response = await fetch(fileOrUrl, { signal: controller.signal });
+                        clearTimeout(timeoutId);
+                        const blob = await response.blob();
+                        arrayBuffer = await blob.arrayBuffer();
+                    } catch (fetchErr) {
+                        clearTimeout(timeoutId);
+                        throw fetchErr;
+                    }
                 } else {
                     arrayBuffer = await fileOrUrl.arrayBuffer();
                 }
