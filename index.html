@@ -2711,8 +2711,12 @@ Warm regards,
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(videoHistory, null, 2));
             const downloadAnchor = document.createElement('a');
             downloadAnchor.setAttribute("href", dataStr);
-            const choreoName = videoHistory[currentVideoId]?.choreoName || "";
-            const fileName = choreoName.trim() ? choreoName.trim().replace(/[^a-zA-Z0-9_-]/g, "_") + ".json" : "tap_dance_project.json";
+            
+            const choreoName = videoHistory[currentVideoId]?.choreoName 
+                || (videoHistory[currentVideoId]?.title ? videoHistory[currentVideoId].title.replace(/\.[^/.]+$/, "") : "")
+                || "tap_dance_project";
+                
+            const fileName = choreoName.trim().replace(/[^a-zA-Z0-9_-]/g, "_") + ".json";
             downloadAnchor.setAttribute("download", fileName);
             document.body.appendChild(downloadAnchor);
             downloadAnchor.click();
