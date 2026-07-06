@@ -3464,7 +3464,7 @@ Warm regards,
         });
 
         // ======== WAVEFORM VISUALIZER ========
-        async function loadAudioWaveform(file) {
+        async function loadAudioWaveform(fileOrUrl) {
             const panel = document.getElementById('waveformPanel');
             const canvas = document.getElementById('waveformCanvas');
             const loading = document.getElementById('waveformLoading');
@@ -3478,7 +3478,14 @@ Warm regards,
             drawWaveform();
 
             try {
-                const arrayBuffer = await file.arrayBuffer();
+                let arrayBuffer;
+                if (typeof fileOrUrl === 'string') {
+                    const response = await fetch(fileOrUrl);
+                    const blob = await response.blob();
+                    arrayBuffer = await blob.arrayBuffer();
+                } else {
+                    arrayBuffer = await fileOrUrl.arrayBuffer();
+                }
                 loading.textContent = '⏳ Processando áudio...';
                 
                 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -3496,6 +3503,56 @@ Warm regards,
                 }, 3000);
             }
         }
+
+        window.loadVideoFromURL = function(url) {
+            video.src = url;
+            video.load();
+            
+            let foundId = null;
+            Object.values(videoHistory).forEach(vid => {
+                if (vid.originalUrl === url) {
+                    foundId = vid.id;
+                }
+            });
+            
+            if (foundId) {
+                currentVideoId = foundId;
+                markers = videoHistory[currentVideoId].markers || [];
+                videoHistory[currentVideoId].lastAccessed = Date.now();
+            } else {
+                const title = url.substring(url.lastIndexOf('/') + 1);
+                currentVideoId = title + '_' + Date.now();
+                markers = [];
+                videoHistory[currentVideoId] = {
+                    id: currentVideoId,
+                    title: title,
+                    originalUrl: url,
+                    lastAccessed: Date.now(),
+                    fileDate: Date.now(),
+                    isFavorite: false,
+                    markers: [],
+                    duration: 0
+                };
+            }
+            
+            loadAudioWaveform(url);
+            
+            editingStepId = null;
+            selectedLoops.clear();
+            isTraining = false;
+            isPlayRequested = false;
+            resetZoom();
+            saveHistoryToStorage();
+            syncChoreoNameInput();
+            renderLoops();
+            
+            const cleanTitle = videoHistory[currentVideoId].title;
+            videoTitleHint.textContent = `Ativo: ${cleanTitle}`;
+            videoTitleHint.style.color = "var(--accent)";
+            videoTitleHint.style.fontWeight = "bold";
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
 
         function generateWaveformPoints() {
             if (!currentAudioBuffer) return;
@@ -5049,12 +5106,52 @@ Warm regards,
             renderGlossary();
         }
 
+        async function loadDefaultProjectAndVideo() {
+            const defaultVideoUrl = "https://glauberlasantiago.github.io/tap-dance-choreographer/prof-Giovane-Mendonca-exemplo-sapateado.mp4";
+            const defaultJsonUrl = "https://glauberlasantiago.github.io/tap-dance-choreographer/prof-Giovane-Mendonca-exemplo-sapateado.json";
+            
+            try {
+                const res = await fetch(defaultJsonUrl);
+                if (res.ok) {
+                    const defaultHistory = await res.json();
+                    
+                    videoHistory = { ...videoHistory, ...defaultHistory };
+                    
+                    const keys = Object.keys(defaultHistory);
+                    if (keys.length > 0) {
+                        const defaultId = keys[0];
+                        videoHistory[defaultId].originalUrl = defaultVideoUrl;
+                        
+                        if (!currentVideoId) {
+                            currentVideoId = defaultId;
+                            localStorage.setItem('loopDance_currentVideoId', currentVideoId);
+                        }
+                    }
+                    
+                    saveHistoryToStorage();
+                    
+                    if (currentVideoId && videoHistory[currentVideoId]) {
+                        loadVideoFromURL(videoHistory[currentVideoId].originalUrl);
+                    }
+                }
+            } catch (err) {
+                console.warn("Could not load default project/video:", err);
+            }
+        }
+
         // Inicialização
         loadHistoryFromStorage();
         initGlossary();
         loadCustomSteps();
         renderStepButtons();
         setupWaveformInteraction();
+
+        // Load default project/video if history is empty
+        if (Object.keys(videoHistory).length === 0) {
+            loadDefaultProjectAndVideo();
+        } else if (currentVideoId && videoHistory[currentVideoId] && videoHistory[currentVideoId].originalUrl) {
+            loadVideoFromURL(videoHistory[currentVideoId].originalUrl);
+        }
 
         requestAnimationFrame(checkLoop);
 
