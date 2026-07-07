@@ -1465,6 +1465,7 @@ Warm regards,
             'C5', 'D5', 'E5', 'F5', 'G5', 'A5', 'B5',
             'C6'
         ];
+        const pianoAudioCache = {};
         let customSteps = {
             L: ["Step", "Stamp", "Stomp", "Heel", "Toe", "Toe (Tip)", "Dig", "Brush", "Spank", "Hop", "Scuff", "Chug", "Click"],
             R: ["Step", "Stamp", "Stomp", "Heel", "Toe", "Toe (Tip)", "Dig", "Brush", "Spank", "Hop", "Scuff", "Chug", "Click"]
@@ -1575,6 +1576,7 @@ Warm regards,
                 console.error("Erro ao ler localStorage", e);
                 videoHistory = {};
             }
+            preloadPianoAudios();
             renderHistory();
         }
 
@@ -4267,75 +4269,31 @@ Warm regards,
             return markers.length;
         }
 
+        function preloadPianoAudios() {
+            C_MAJOR_SCALE.forEach(note => {
+                const url = `audio/piano_${note.toLowerCase()}.wav`;
+                const audio = new Audio(url);
+                audio.preload = 'auto';
+                audio.load();
+                pianoAudioCache[note] = audio;
+            });
+        }
+
         function playPianoNote(noteName, volume) {
-            const frequencies = {
-                'C3': 130.81, 'D3': 146.83, 'E3': 164.81, 'F3': 174.61, 'G3': 196.00, 'A3': 220.00, 'B3': 246.94,
-                'C4': 261.63, 'D4': 293.66, 'E4': 329.63, 'F4': 349.23, 'G4': 392.00, 'A4': 440.00, 'B4': 493.88,
-                'C5': 523.25, 'D5': 587.33, 'E5': 659.25, 'F5': 698.46, 'G5': 783.99, 'A5': 880.00, 'B5': 987.77,
-                'C6': 1046.50
-            };
-            const freq = frequencies[noteName];
-            if (!freq) return;
-            
-            try {
-                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-                const ctx = new AudioContextClass();
-                const now = ctx.currentTime;
-                
-                const masterGain = ctx.createGain();
-                masterGain.gain.setValueAtTime(0, now);
-                masterGain.gain.linearRampToValueAtTime(volume, now + 0.005);
-                masterGain.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
-                
-                const filter = ctx.createBiquadFilter();
-                filter.type = 'lowpass';
-                filter.frequency.setValueAtTime(1000, now);
-                filter.frequency.exponentialRampToValueAtTime(200, now + 1.0);
-                
-                masterGain.connect(filter);
-                filter.connect(ctx.destination);
-                
-                const fundamental = ctx.createOscillator();
-                fundamental.type = 'triangle';
-                fundamental.frequency.value = freq;
-                
-                const overtone1 = ctx.createOscillator();
-                overtone1.type = 'sine';
-                overtone1.frequency.value = freq * 2;
-                
-                const overtone2 = ctx.createOscillator();
-                overtone2.type = 'sine';
-                overtone2.frequency.value = freq * 3;
-                
-                const overtone3 = ctx.createOscillator();
-                overtone3.type = 'sine';
-                overtone3.frequency.value = freq * 4;
-                
-                const g0 = ctx.createGain(); g0.gain.value = 0.6;
-                const g1 = ctx.createGain(); g1.gain.value = 0.3;
-                const g2 = ctx.createGain(); g2.gain.value = 0.15;
-                const g3 = ctx.createGain(); g3.gain.value = 0.08;
-                
-                fundamental.connect(g0); g0.connect(masterGain);
-                overtone1.connect(g1); g1.connect(masterGain);
-                overtone2.connect(g2); g2.connect(masterGain);
-                overtone3.connect(g3); g3.connect(masterGain);
-                
-                fundamental.start(now);
-                overtone1.start(now);
-                overtone2.start(now);
-                overtone3.start(now);
-                
-                fundamental.stop(now + 1.3);
-                overtone1.stop(now + 1.3);
-                overtone2.stop(now + 1.3);
-                overtone3.stop(now + 1.3);
-                
-                setTimeout(() => {
-                    ctx.close();
-                }, 1400);
-            } catch (e) {
-                console.warn("Falha ao tocar nota de piano (Web Audio API bloqueada ou indisponível):", e);
+            if (!pianoEnabled) return;
+            const cachedAudio = pianoAudioCache[noteName];
+            if (cachedAudio) {
+                try {
+                    cachedAudio.volume = volume;
+                    cachedAudio.currentTime = 0;
+                    cachedAudio.play().catch(err => {
+                        console.warn(`Erro ao tocar nota de piano ${noteName}:`, err);
+                    });
+                } catch (e) {
+                    console.warn(`Exceção ao tocar nota de piano ${noteName}:`, e);
+                }
+            } else {
+                console.warn(`Nota de piano ${noteName} não carregada no cache.`);
             }
         }
 
