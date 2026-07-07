@@ -848,6 +848,14 @@
                     <input type="range" id="speechVolumeSlider" min="0" max="1" step="0.05" value="1" style="flex: 1; height: 16px; margin: 0; cursor: pointer;" oninput="updateSpeechVolume(this.value)">
                     <span id="speechVolumeValue" style="font-size: 10.4px; font-family: monospace; color: #aaa; min-width: 25px; text-align: right;">100%</span>
                 </div>
+                <div style="display: flex; align-items: center; gap: 4px; flex: 1 1 150px; min-width: 140px;">
+                    <label style="display: flex; align-items: center; gap: 3px; cursor: pointer; user-select: none;">
+                        <input type="checkbox" id="pianoEnabledCheckbox" checked onchange="updatePianoEnabled(this.checked)" style="cursor: pointer; margin: 0; width: 13px; height: 13px;">
+                        <span style="font-size: 10.4px; font-weight: bold; color: #aaa; white-space: nowrap;">🎹 Piano:</span>
+                    </label>
+                    <input type="range" id="pianoVolumeSlider" min="0" max="1" step="0.05" value="0.5" style="flex: 1; height: 16px; margin: 0; cursor: pointer;" oninput="updatePianoVolume(this.value)">
+                    <span id="pianoVolumeValue" style="font-size: 10.4px; font-family: monospace; color: #aaa; min-width: 25px; text-align: right;">50%</span>
+                </div>
             </div>
             <div style="display: flex; gap: 8px; flex: 1 1 auto; justify-content: flex-end; align-items: center;">
                 <button id="btnAddMarker" class="btn-main" style="padding: 10px 18px; font-size: 11.2px; border-radius: 6px; flex: none; margin: 0; width: auto;">📍 Marcar</button>
@@ -1443,6 +1451,20 @@ Warm regards,
         let segmentsPerRow = 3;
         let spokenItemIds = new Set();
         const MAX_UNDO_LIMIT = 50;
+
+        // Piano Feedback States
+        let pianoEnabled = true;
+        let pianoVolume = 0.5;
+        let pianoNoteIndex = 0;
+        let currentSegmentIndex = -1;
+        let lastVideoTime = 0;
+        const playedPianoStepIds = new Set();
+        const C_MAJOR_SCALE = [
+            'C3', 'D3', 'E3', 'F3', 'G3', 'A3', 'B3',
+            'C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4',
+            'C5', 'D5', 'E5', 'F5', 'G5', 'A5', 'B5',
+            'C6'
+        ];
         let customSteps = {
             L: ["Step", "Stamp", "Stomp", "Heel", "Toe", "Toe (Tip)", "Dig", "Brush", "Spank", "Hop", "Scuff", "Chug", "Click"],
             R: ["Step", "Stamp", "Stomp", "Heel", "Toe", "Toe (Tip)", "Dig", "Brush", "Spank", "Hop", "Scuff", "Chug", "Click"]
@@ -1522,6 +1544,23 @@ Warm regards,
                     if (slider) slider.value = savedSpeechVol;
                     const valSpan = document.getElementById('speechVolumeValue');
                     if (valSpan) valSpan.textContent = Math.round(speechVolume * 100) + '%';
+                }
+
+                // Restore piano settings
+                pianoEnabled = localStorage.getItem('loopDance_pianoEnabled') !== 'false';
+                const pianoCheckbox = document.getElementById('pianoEnabledCheckbox');
+                if (pianoCheckbox) {
+                    pianoCheckbox.checked = pianoEnabled;
+                }
+                
+                pianoVolume = localStorage.getItem('loopDance_pianoVolume') !== null ? parseFloat(localStorage.getItem('loopDance_pianoVolume')) : 0.5;
+                const pianoSlider = document.getElementById('pianoVolumeSlider');
+                const pianoValueSpan = document.getElementById('pianoVolumeValue');
+                if (pianoSlider) {
+                    pianoSlider.value = pianoVolume;
+                }
+                if (pianoValueSpan) {
+                    pianoValueSpan.textContent = Math.round(pianoVolume * 100) + '%';
                 }
 
                 // Restore segments per row
@@ -3926,7 +3965,20 @@ Warm regards,
             if (valSpan) {
                 valSpan.textContent = Math.round(speechVolume * 100) + '%';
             }
-            localStorage.setItem('speechVolume', val);
+        };
+
+        window.updatePianoEnabled = function(enabled) {
+            pianoEnabled = enabled;
+            localStorage.setItem('loopDance_pianoEnabled', enabled);
+        };
+
+        window.updatePianoVolume = function(val) {
+            pianoVolume = parseFloat(val);
+            const valSpan = document.getElementById('pianoVolumeValue');
+            if (valSpan) {
+                valSpan.textContent = Math.round(pianoVolume * 100) + '%';
+            }
+            localStorage.setItem('loopDance_pianoVolume', val);
         };
 
         function updateSegmentsPerRow(cols) {
@@ -4203,6 +4255,124 @@ Warm regards,
                     }
                 });
             }
+        }
+
+        function getCurrentSegmentIndex(curTime) {
+            if (!markers || markers.length === 0) return 0;
+            for (let i = 0; i < markers.length; i++) {
+                if (curTime < markers[i]) {
+                    return i;
+                }
+            }
+            return markers.length;
+        }
+
+        function playPianoNote(noteName, volume) {
+            const frequencies = {
+                'C3': 130.81, 'D3': 146.83, 'E3': 164.81, 'F3': 174.61, 'G3': 196.00, 'A3': 220.00, 'B3': 246.94,
+                'C4': 261.63, 'D4': 293.66, 'E4': 329.63, 'F4': 349.23, 'G4': 392.00, 'A4': 440.00, 'B4': 493.88,
+                'C5': 523.25, 'D5': 587.33, 'E5': 659.25, 'F5': 698.46, 'G5': 783.99, 'A5': 880.00, 'B5': 987.77,
+                'C6': 1046.50
+            };
+            const freq = frequencies[noteName];
+            if (!freq) return;
+            
+            try {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                const ctx = new AudioContextClass();
+                const now = ctx.currentTime;
+                
+                const masterGain = ctx.createGain();
+                masterGain.gain.setValueAtTime(0, now);
+                masterGain.gain.linearRampToValueAtTime(volume, now + 0.005);
+                masterGain.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
+                
+                const filter = ctx.createBiquadFilter();
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(1000, now);
+                filter.frequency.exponentialRampToValueAtTime(200, now + 1.0);
+                
+                masterGain.connect(filter);
+                filter.connect(ctx.destination);
+                
+                const fundamental = ctx.createOscillator();
+                fundamental.type = 'triangle';
+                fundamental.frequency.value = freq;
+                
+                const overtone1 = ctx.createOscillator();
+                overtone1.type = 'sine';
+                overtone1.frequency.value = freq * 2;
+                
+                const overtone2 = ctx.createOscillator();
+                overtone2.type = 'sine';
+                overtone2.frequency.value = freq * 3;
+                
+                const overtone3 = ctx.createOscillator();
+                overtone3.type = 'sine';
+                overtone3.frequency.value = freq * 4;
+                
+                const g0 = ctx.createGain(); g0.gain.value = 0.6;
+                const g1 = ctx.createGain(); g1.gain.value = 0.3;
+                const g2 = ctx.createGain(); g2.gain.value = 0.15;
+                const g3 = ctx.createGain(); g3.gain.value = 0.08;
+                
+                fundamental.connect(g0); g0.connect(masterGain);
+                overtone1.connect(g1); g1.connect(masterGain);
+                overtone2.connect(g2); g2.connect(masterGain);
+                overtone3.connect(g3); g3.connect(masterGain);
+                
+                fundamental.start(now);
+                overtone1.start(now);
+                overtone2.start(now);
+                overtone3.start(now);
+                
+                fundamental.stop(now + 1.3);
+                overtone1.stop(now + 1.3);
+                overtone2.stop(now + 1.3);
+                overtone3.stop(now + 1.3);
+                
+                setTimeout(() => {
+                    ctx.close();
+                }, 1400);
+            } catch (e) {
+                console.warn("Falha ao tocar nota de piano (Web Audio API bloqueada ou indisponível):", e);
+            }
+        }
+
+        function handlePianoFeedback(curTime) {
+            if (!pianoEnabled) return;
+            if (!currentVideoId || !videoHistory[currentVideoId]) return;
+            
+            const steps = videoHistory[currentVideoId].steps || [];
+            
+            // Check for loop back or manual seeks
+            if (curTime < lastVideoTime || Math.abs(curTime - lastVideoTime) > 0.5) {
+                pianoNoteIndex = 0;
+                playedPianoStepIds.clear();
+            }
+            lastVideoTime = curTime;
+            
+            // Check if segment/trecho changed
+            const segIdx = getCurrentSegmentIndex(curTime);
+            if (segIdx !== currentSegmentIndex) {
+                currentSegmentIndex = segIdx;
+                pianoNoteIndex = 0;
+                playedPianoStepIds.clear();
+            }
+            
+            // Detect step execution
+            steps.forEach(s => {
+                const id = s.id;
+                if (!playedPianoStepIds.has(id)) {
+                    // Play note at exactly step time (within a small 250ms forward window)
+                    if (curTime >= s.time && curTime < s.time + 0.25) {
+                        playedPianoStepIds.add(id);
+                        const note = C_MAJOR_SCALE[pianoNoteIndex];
+                        playPianoNote(note, pianoVolume);
+                        pianoNoteIndex = (pianoNoteIndex + 1) % C_MAJOR_SCALE.length;
+                    }
+                }
+            });
         }
 
         function setupWaveformInteraction() {
@@ -5095,6 +5265,7 @@ Warm regards,
             }
             if (!video.paused) {
                 handleAudioSpeechFeedback(video.currentTime);
+                handlePianoFeedback(video.currentTime);
             }
             updateStepOverlay();
             updatePlayingStepHighlight();
