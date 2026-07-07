@@ -170,6 +170,11 @@
             transform: translateY(-50%) scale(1);
         }
 
+        .tap-sidebar {
+            position: relative;
+            z-index: 10;
+        }
+
         @media (max-width: 768px) {
             .tap-step-btn::after {
                 display: none !important;
@@ -1019,7 +1024,7 @@
             </div>
         </div>
                         <!-- Seção de Glossário Dinâmico -->
-        <div class="control-panel" style="display: none; margin-top: 20px; padding: 24px; border-radius: 12px; background: rgba(30, 30, 30, 0.45); backdrop-filter: blur(10px); border: 1.5px solid rgba(124, 77, 255, 0.15); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);">
+        <div class="control-panel" style="display: flex; flex-direction: column; margin-top: 20px; padding: 24px; border-radius: 12px; background: rgba(30, 30, 30, 0.45); backdrop-filter: blur(10px); border: 1.5px solid rgba(124, 77, 255, 0.15); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);">
             <h3 style="margin-top: 0; color: var(--accent); font-size: 18px; font-weight: bold; border-bottom: 1px solid #333; padding-bottom: 10px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
                 <span style="display: flex; align-items: center; gap: 8px;">📖 Dicionário de Combinações Rítmicas</span>
                 <span id="glossaryStats" style="font-size: 12px; font-weight: normal; color: #aaa;">Mostrando todas</span>
@@ -1492,16 +1497,6 @@ Warm regards,
                 const data = localStorage.getItem(STORAGE_KEY);
                 if (data) videoHistory = JSON.parse(data);
                 normalizeHistoryStepsCasing();
-                
-                // Self-correct default project's title, choreoName, and originalUrl if it exists in history
-                const defaultId = "Giovane-Mendonca-exemplo-sapateado.mp4_7739955";
-                const defaultVideoUrl = "https://glauberlasantiago.github.io/tap-dance-choreographer/Giovane-Mendonca-exemplo-sapateado.mp4";
-                if (videoHistory[defaultId]) {
-                    videoHistory[defaultId].originalUrl = defaultVideoUrl;
-                    videoHistory[defaultId].title = "Giovane-Mendonca-exemplo-sapateado.mp4";
-                    videoHistory[defaultId].choreoName = "Giovane-Mendonca-exemplo-sapateado";
-                }
-                
                 currentVideoId = localStorage.getItem('loopDance_currentVideoId') || null;
                 
                 audioFeedbackMode = localStorage.getItem('audioFeedbackMode') || 'none';
@@ -1628,7 +1623,79 @@ Warm regards,
             while (i < sortedSteps.length) {
                 const s1 = sortedSteps[i];
 
-                // Cramp Roll
+                // 1. Buffalo (5 steps)
+                if (i + 4 < sortedSteps.length) {
+                    const s2 = sortedSteps[i+1];
+                    const s3 = sortedSteps[i+2];
+                    const s4 = sortedSteps[i+3];
+                    const s5 = sortedSteps[i+4];
+                    if (s1.foot === s4.foot && s2.foot === s3.foot && s2.foot === s5.foot && s1.foot !== s2.foot &&
+                        getBaseStepName(s1.step) === 'step' && getBaseStepName(s2.step) === 'brush' &&
+                        getBaseStepName(s3.step) === 'spank' && getBaseStepName(s4.step) === 'hop' &&
+                        getBaseStepName(s5.step) === 'step' &&
+                        (s2.time - s1.time) <= thresh && (s3.time - s2.time) <= thresh &&
+                        (s4.time - s3.time) <= thresh && (s5.time - s4.time) <= thresh) {
+                        combos.push({
+                            id: 'comb_buffalo_' + s1.id,
+                            name: s1.foot === 'L' ? 'BUFFALO' : 'buffalo',
+                            foot: 'both',
+                            time: s1.time,
+                            steps: [s1, s2, s3, s4, s5]
+                        });
+                        i += 5;
+                        continue;
+                    }
+                }
+
+                // 2. Maxie Ford (5 steps)
+                if (i + 4 < sortedSteps.length) {
+                    const s2 = sortedSteps[i+1];
+                    const s3 = sortedSteps[i+2];
+                    const s4 = sortedSteps[i+3];
+                    const s5 = sortedSteps[i+4];
+                    if (s1.foot === s5.foot && s2.foot === s3.foot && s2.foot === s4.foot && s1.foot !== s2.foot &&
+                        getBaseStepName(s1.step) === 'step' && getBaseStepName(s2.step) === 'brush' &&
+                        getBaseStepName(s3.step) === 'spank' && getBaseStepName(s4.step) === 'step' &&
+                        (getBaseStepName(s5.step) === 'toe' || getBaseStepName(s5.step) === 'tip') &&
+                        (s2.time - s1.time) <= thresh && (s3.time - s2.time) <= thresh &&
+                        (s4.time - s3.time) <= thresh && (s5.time - s4.time) <= thresh) {
+                        combos.push({
+                            id: 'comb_maxieford_' + s1.id,
+                            name: s1.foot === 'L' ? 'MAXIE FORD' : 'maxie ford',
+                            foot: 'both',
+                            time: s1.time,
+                            steps: [s1, s2, s3, s4, s5]
+                        });
+                        i += 5;
+                        continue;
+                    }
+                }
+
+                // 3. Waltz Clog (5 steps)
+                if (i + 4 < sortedSteps.length) {
+                    const s2 = sortedSteps[i+1];
+                    const s3 = sortedSteps[i+2];
+                    const s4 = sortedSteps[i+3];
+                    const s5 = sortedSteps[i+4];
+                    if (s1.foot === s5.foot && s2.foot === s3.foot && s2.foot === s4.foot && s1.foot !== s2.foot &&
+                        getBaseStepName(s1.step) === 'step' && getBaseStepName(s2.step) === 'brush' &&
+                        getBaseStepName(s3.step) === 'spank' && getBaseStepName(s4.step) === 'step' &&
+                        getBaseStepName(s5.step) === 'step' &&
+                        (s2.time - s1.time) <= thresh && (s3.time - s2.time) <= thresh &&
+                        (s4.time - s3.time) <= thresh && (s5.time - s4.time) <= thresh) {
+                        combos.push({
+                            id: 'comb_waltzclog_' + s1.id,
+                            name: s1.foot === 'L' ? 'WALTZ CLOG' : 'waltz clog',
+                            foot: 'both',
+                            time: s1.time,
+                            steps: [s1, s2, s3, s4, s5]
+                        });
+                        i += 5;
+                        continue;
+                    }
+                }
+
+                // 4. Cramp Roll (4 steps)
                 if (i + 3 < sortedSteps.length) {
                     const s2 = sortedSteps[i+1];
                     const s3 = sortedSteps[i+2];
@@ -1649,7 +1716,7 @@ Warm regards,
                     }
                 }
 
-                // Shuffle Ball Change
+                // 5. Shuffle Ball Change (4 steps)
                 if (i + 3 < sortedSteps.length) {
                     const s2 = sortedSteps[i+1];
                     const s3 = sortedSteps[i+2];
@@ -1670,7 +1737,7 @@ Warm regards,
                     }
                 }
 
-                // Irish
+                // 6. Irish (4 steps)
                 if (i + 3 < sortedSteps.length) {
                     const s2 = sortedSteps[i+1];
                     const s3 = sortedSteps[i+2];
@@ -1682,6 +1749,27 @@ Warm regards,
                         combos.push({
                             id: 'comb_irish_' + s1.id,
                             name: s1.foot === 'L' ? 'IRISH' : 'irish',
+                            foot: s1.foot,
+                            time: s1.time,
+                            steps: [s1, s2, s3, s4]
+                        });
+                        i += 4;
+                        continue;
+                    }
+                }
+
+                // 7. Paradiddle / Scuffle Step Heel (4 steps)
+                if (i + 3 < sortedSteps.length) {
+                    const s2 = sortedSteps[i+1];
+                    const s3 = sortedSteps[i+2];
+                    const s4 = sortedSteps[i+3];
+                    if (s1.foot === s2.foot && s1.foot === s3.foot && s1.foot === s4.foot &&
+                        getBaseStepName(s1.step) === 'dig' && getBaseStepName(s2.step) === 'spank' &&
+                        getBaseStepName(s3.step) === 'step' && getBaseStepName(s4.step) === 'heel' &&
+                        (s2.time - s1.time) <= thresh && (s3.time - s2.time) <= thresh && (s4.time - s3.time) <= thresh) {
+                        combos.push({
+                            id: 'comb_paradiddle_' + s1.id,
+                            name: s1.foot === 'L' ? 'PARADIDDLE' : 'paradiddle',
                             foot: s1.foot,
                             time: s1.time,
                             steps: [s1, s2, s3, s4]
@@ -1709,6 +1797,25 @@ Warm regards,
 
             while (i < sortedSteps.length) {
                 const s1 = sortedSteps[i];
+
+                // 1. Drawback (3 steps)
+                if (i + 2 < sortedSteps.length) {
+                    const s2 = sortedSteps[i+1];
+                    const s3 = sortedSteps[i+2];
+                    if (s1.foot !== s2.foot && s1.foot === s3.foot &&
+                        getBaseStepName(s1.step) === 'spank' && getBaseStepName(s2.step) === 'heel' && getBaseStepName(s3.step) === 'step' &&
+                        (s2.time - s1.time) <= thresh && (s3.time - s2.time) <= thresh) {
+                        combos.push({
+                            id: 'comb_drawback_' + s1.id,
+                            name: s1.foot === 'L' ? 'DRAWBACK' : 'drawback',
+                            foot: s1.foot,
+                            time: s1.time,
+                            steps: [s1, s2, s3]
+                        });
+                        i += 3;
+                        continue;
+                    }
+                }
 
                 // Flap Heel
                 if (i + 2 < sortedSteps.length) {
@@ -3843,6 +3950,12 @@ Warm regards,
             return clean;
         }
 
+        // Mapeia texto do passo para um nome de arquivo MP3 higienizado
+        function getAudioFilename(text) {
+            const clean = getSpeakableText(text);
+            return clean.replace(/[^a-z0-9]/g, '_') + '.mp3';
+        }
+
         window.preRenderProjectTTS = function() {
             if (!currentVideoId || !videoHistory[currentVideoId]) return;
             const steps = videoHistory[currentVideoId].steps || [];
@@ -3862,10 +3975,22 @@ Warm regards,
                 if (clean === 'a definir' || clean.startsWith('a definir') || clean === 'a_definir') return;
                 if (ttsAudioCache[clean]) return;
                 
-                // Google Translate TTS URL
-                const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en&client=tw-ob&q=${encodeURIComponent(text)}`;
-                const audio = new Audio(url);
+                const filename = getAudioFilename(text);
+                const localUrl = `audio/${filename}`;
+                
+                const audio = new Audio(localUrl);
                 audio.preload = 'auto';
+                
+                // Fallback para Google Translate TTS caso o arquivo local não exista/falhe
+                audio.onerror = () => {
+                    console.log(`Áudio local não encontrado: ${localUrl}. Usando Google Translate TTS como fallback.`);
+                    const fallbackUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=en&client=tw-ob&q=${encodeURIComponent(text)}`;
+                    const fallbackAudio = new Audio(fallbackUrl);
+                    fallbackAudio.preload = 'auto';
+                    fallbackAudio.load();
+                    ttsAudioCache[clean] = fallbackAudio;
+                };
+                
                 audio.load();
                 ttsAudioCache[clean] = audio;
             });
