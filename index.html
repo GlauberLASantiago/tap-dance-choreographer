@@ -837,24 +837,30 @@
                     <option value="l2">Priorizar Terciárias (ex: Irish)</option>
                 </select>
             </div>
-            <div style="display: flex; align-items: center; gap: 12px; background: rgba(0,0,0,0.15); padding: 4px 8px; border-radius: 6px; border: 1px solid #333; box-sizing: border-box; flex: 1 1 300px; min-width: 250px; flex-wrap: wrap;">
-                <div style="display: flex; align-items: center; gap: 4px; flex: 1 1 110px;">
-                    <span style="font-size: 10.4px; font-weight: bold; color: #aaa; white-space: nowrap;">🎬 Vídeo:</span>
-                    <input type="range" id="videoVolumeSlider" min="0" max="1" step="0.05" value="1" style="flex: 1; height: 16px; margin: 0; cursor: pointer;" oninput="updateVideoVolume(this.value)">
-                    <span id="videoVolumeValue" style="font-size: 10.4px; font-family: monospace; color: #aaa; min-width: 25px; text-align: right;">100%</span>
+            <div style="display: flex; align-items: center; gap: 12px; background: rgba(0,0,0,0.15); padding: 4px 8px; border-radius: 6px; border: 1px solid #333; box-sizing: border-box; flex: 1 1 450px; min-width: 350px; flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: 4px; flex: 1 1 150px; min-width: 140px;">
+                    <label style="display: flex; align-items: center; gap: 3px; cursor: pointer; user-select: none;">
+                        <input type="checkbox" id="videoEnabledCheckbox" checked onchange="updateVideoEnabled(this.checked)" style="cursor: pointer; margin: 0; width: 13px; height: 13px;">
+                        <span style="font-size: 10.4px; font-weight: bold; color: #aaa; white-space: nowrap;">🎬 Vídeo:</span>
+                    </label>
+                    <input type="range" id="videoVolumeSlider" min="0" max="1" step="0.05" value="0.85" style="flex: 1; height: 16px; margin: 0; cursor: pointer;" oninput="updateVideoVolume(this.value)">
+                    <span id="videoVolumeValue" style="font-size: 10.4px; font-family: monospace; color: #aaa; min-width: 25px; text-align: right;">85%</span>
                 </div>
-                <div style="display: flex; align-items: center; gap: 4px; flex: 1 1 110px;">
-                    <span style="font-size: 10.4px; font-weight: bold; color: #aaa; white-space: nowrap;">🗣️ Fala:</span>
-                    <input type="range" id="speechVolumeSlider" min="0" max="1" step="0.05" value="1" style="flex: 1; height: 16px; margin: 0; cursor: pointer;" oninput="updateSpeechVolume(this.value)">
-                    <span id="speechVolumeValue" style="font-size: 10.4px; font-family: monospace; color: #aaa; min-width: 25px; text-align: right;">100%</span>
+                <div style="display: flex; align-items: center; gap: 4px; flex: 1 1 150px; min-width: 140px;">
+                    <label style="display: flex; align-items: center; gap: 3px; cursor: pointer; user-select: none;">
+                        <input type="checkbox" id="speechEnabledCheckbox" checked onchange="updateSpeechEnabled(this.checked)" style="cursor: pointer; margin: 0; width: 13px; height: 13px;">
+                        <span style="font-size: 10.4px; font-weight: bold; color: #aaa; white-space: nowrap;">🗣️ Fala:</span>
+                    </label>
+                    <input type="range" id="speechVolumeSlider" min="0" max="1" step="0.05" value="0.65" style="flex: 1; height: 16px; margin: 0; cursor: pointer;" oninput="updateSpeechVolume(this.value)">
+                    <span id="speechVolumeValue" style="font-size: 10.4px; font-family: monospace; color: #aaa; min-width: 25px; text-align: right;">65%</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 4px; flex: 1 1 150px; min-width: 140px;">
                     <label style="display: flex; align-items: center; gap: 3px; cursor: pointer; user-select: none;">
                         <input type="checkbox" id="pianoEnabledCheckbox" checked onchange="updatePianoEnabled(this.checked)" style="cursor: pointer; margin: 0; width: 13px; height: 13px;">
                         <span style="font-size: 10.4px; font-weight: bold; color: #aaa; white-space: nowrap;">🎹 Piano:</span>
                     </label>
-                    <input type="range" id="pianoVolumeSlider" min="0" max="1" step="0.05" value="0.5" style="flex: 1; height: 16px; margin: 0; cursor: pointer;" oninput="updatePianoVolume(this.value)">
-                    <span id="pianoVolumeValue" style="font-size: 10.4px; font-family: monospace; color: #aaa; min-width: 25px; text-align: right;">50%</span>
+                    <input type="range" id="pianoVolumeSlider" min="0" max="1" step="0.05" value="0.15" style="flex: 1; height: 16px; margin: 0; cursor: pointer;" oninput="updatePianoVolume(this.value)">
+                    <span id="pianoVolumeValue" style="font-size: 10.4px; font-family: monospace; color: #aaa; min-width: 25px; text-align: right;">15%</span>
                 </div>
             </div>
             <div style="display: flex; gap: 8px; flex: 1 1 auto; justify-content: flex-end; align-items: center;">
@@ -1447,14 +1453,16 @@ Warm regards,
         let waveformZoom = 1;
         let isSeekingWaveform = false;
         let audioFeedbackMode = 'none';
-        let speechVolume = 1;
+        let speechVolume = 0.65;
+        let speechEnabled = true;
+        let videoEnabled = true;
         let segmentsPerRow = 3;
         let spokenItemIds = new Set();
         const MAX_UNDO_LIMIT = 50;
 
         // Piano Feedback States
         let pianoEnabled = true;
-        let pianoVolume = 0.5;
+        let pianoVolume = 0.15;
         let pianoNoteIndex = 0;
         let currentSegmentIndex = -1;
         let lastVideoTime = 0;
@@ -1529,23 +1537,34 @@ Warm regards,
                 }
 
                 // Restore volumes
-                const savedVideoVol = localStorage.getItem('videoVolume');
-                if (savedVideoVol !== null) {
-                    if (video) video.volume = parseFloat(savedVideoVol);
-                    const slider = document.getElementById('videoVolumeSlider');
-                    if (slider) slider.value = savedVideoVol;
-                    const valSpan = document.getElementById('videoVolumeValue');
-                    if (valSpan) valSpan.textContent = Math.round(parseFloat(savedVideoVol) * 100) + '%';
+                videoEnabled = localStorage.getItem('loopDance_videoEnabled') !== 'false';
+                const videoCheckbox = document.getElementById('videoEnabledCheckbox');
+                if (videoCheckbox) {
+                    videoCheckbox.checked = videoEnabled;
                 }
+
+                const savedVideoVol = localStorage.getItem('videoVolume') !== null ? localStorage.getItem('videoVolume') : '0.85';
+                if (video) {
+                    video.volume = parseFloat(savedVideoVol);
+                    video.muted = !videoEnabled;
+                }
+                const videoSlider = document.getElementById('videoVolumeSlider');
+                if (videoSlider) videoSlider.value = savedVideoVol;
+                const videoValSpan = document.getElementById('videoVolumeValue');
+                if (videoValSpan) videoValSpan.textContent = Math.round(parseFloat(savedVideoVol) * 100) + '%';
                 
-                const savedSpeechVol = localStorage.getItem('speechVolume');
-                if (savedSpeechVol !== null) {
-                    speechVolume = parseFloat(savedSpeechVol);
-                    const slider = document.getElementById('speechVolumeSlider');
-                    if (slider) slider.value = savedSpeechVol;
-                    const valSpan = document.getElementById('speechVolumeValue');
-                    if (valSpan) valSpan.textContent = Math.round(speechVolume * 100) + '%';
+                speechEnabled = localStorage.getItem('loopDance_speechEnabled') !== 'false';
+                const speechCheckbox = document.getElementById('speechEnabledCheckbox');
+                if (speechCheckbox) {
+                    speechCheckbox.checked = speechEnabled;
                 }
+
+                const savedSpeechVol = localStorage.getItem('speechVolume') !== null ? localStorage.getItem('speechVolume') : '0.65';
+                speechVolume = parseFloat(savedSpeechVol);
+                const speechSlider = document.getElementById('speechVolumeSlider');
+                if (speechSlider) speechSlider.value = savedSpeechVol;
+                const speechValSpan = document.getElementById('speechVolumeValue');
+                if (speechValSpan) speechValSpan.textContent = Math.round(speechVolume * 100) + '%';
 
                 // Restore piano settings
                 pianoEnabled = localStorage.getItem('loopDance_pianoEnabled') !== 'false';
@@ -1554,7 +1573,7 @@ Warm regards,
                     pianoCheckbox.checked = pianoEnabled;
                 }
                 
-                pianoVolume = localStorage.getItem('loopDance_pianoVolume') !== null ? parseFloat(localStorage.getItem('loopDance_pianoVolume')) : 0.5;
+                pianoVolume = localStorage.getItem('loopDance_pianoVolume') !== null ? parseFloat(localStorage.getItem('loopDance_pianoVolume')) : 0.15;
                 const pianoSlider = document.getElementById('pianoVolumeSlider');
                 const pianoValueSpan = document.getElementById('pianoVolumeValue');
                 if (pianoSlider) {
@@ -3686,6 +3705,7 @@ Warm regards,
 
         window.loadVideoFromURL = function(url) {
             video.src = url;
+            video.muted = !videoEnabled;
             video.load();
             
             let foundId = null;
@@ -3983,6 +4003,17 @@ Warm regards,
             localStorage.setItem('loopDance_pianoVolume', val);
         };
 
+        window.updateVideoEnabled = function(enabled) {
+            videoEnabled = enabled;
+            if (video) video.muted = !enabled;
+            localStorage.setItem('loopDance_videoEnabled', enabled);
+        };
+
+        window.updateSpeechEnabled = function(enabled) {
+            speechEnabled = enabled;
+            localStorage.setItem('loopDance_speechEnabled', enabled);
+        };
+
         function updateSegmentsPerRow(cols) {
             segmentsPerRow = parseInt(cols);
             localStorage.setItem('segmentsPerRow', cols);
@@ -4051,6 +4082,7 @@ Warm regards,
         };
 
         function speakText(text) {
+            if (!speechEnabled) return;
             const clean = getSpeakableText(text);
             if (clean === 'a definir' || clean.startsWith('a definir') || clean === 'a_definir') return;
             
@@ -4545,6 +4577,7 @@ Warm regards,
             const file = event.target.files[0];
             if (file) {
                 video.src = URL.createObjectURL(file);
+                video.muted = !videoEnabled;
                 video.load();
 
                 currentVideoId = file.name + '_' + file.size;
